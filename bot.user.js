@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        AposBot
-// @namespace   AposBot
+// @name        angrocket
+// @namespace   angrocket
 // @include     http://agar.io/
-// @version     3.1
+// @version     3.06
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
