@@ -98,7 +98,7 @@ console.log("Running Apos Bot!");
     
     function canEatNS(player1, player2)
     {
-        return compareSize(player2, player1, 1.15);
+        return compareSize(player2, player1, 1.30);
     }
     
     //Check if player is able to eat player2 after splitting
@@ -802,6 +802,9 @@ console.log("Running Apos Bot!");
                     if(canEatNS(player[0], allPossibleThreats[i]))
                     {
                         console.log("CAN EAT");
+                    }
+                    else{
+                        console.log("CANNOT EAT");
                     }
                     
                     
