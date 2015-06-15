@@ -93,7 +93,22 @@ console.log("Running Apos Bot!");
         }
         return false;
     }
-
+    
+    //Check if player is able to eat player2 without splitting
+    
+    function canEatNS(player1, player2)
+    {
+        return compareSize(player2, player1, 1.15);
+    }
+    
+    //Check if player is able to eat player2 after splitting
+    
+    function canEatWS(player1, player2)
+    {
+        return compareSize(player2, player1, 2.30);
+    }
+    
+    
     function canSplit(player1, player2) {
         return compareSize(player1, player2, 2.30) && !compareSize(player1, player2, 9);
     }
@@ -783,6 +798,12 @@ console.log("Running Apos Bot!");
                     } else {
                         drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + player[0].size + player[0].size, 3);
                     }
+                    
+                    if(canEatNS(player[0], allPossibleThreats[i]))
+                    {
+                        drawString("CAN EAT", allPossibleThreats[i].x, allPossibleThreats[i].y);
+                    }
+                    
 
                     if (allPossibleThreats[i].danger && f.getLastUpdate() - allPossibleThreats[i].dangerTimeOut > 1000) {
 
@@ -1083,7 +1104,12 @@ console.log("Running Apos Bot!");
     function drawCircle(x_1, y_1, radius, drawColor) {
         f.drawCircle(x_1, y_1, radius, drawColor);
     }
-
+    
+    //drawString
+    function drawString(text, x_1, y_1)
+    {
+        f.drawString(text, x_1, y_1);
+    }
     function screenDistance() {
         var temp = f.getScreenDistance();
         return temp;
