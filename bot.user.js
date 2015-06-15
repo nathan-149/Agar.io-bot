@@ -2,7 +2,7 @@
 // @name        angrocket
 // @namespace   angrocket
 // @include     http://agar.io/
-// @version     3.06
+// @version     3.09
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
