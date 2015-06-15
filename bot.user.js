@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        angrocket
-// @namespace   angrocket
+// @namespace   AposBot
 // @include     http://agar.io/
-// @version     3.13
+// @version     3.05
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
@@ -91,11 +91,10 @@ console.log("Running ANG Bot!");
         if (player1.size * player1.size * ratio < player2.size * player2.size) {
             return true;
         }
-        else
-            return false;
+        return false;
     }
-    
-    //Check if player is able to eat player2 without splitting
+
+      //Check if player is able to eat player2 without splitting
     
     function canEatNS(player1, player2)
     {
@@ -109,7 +108,7 @@ console.log("Running ANG Bot!");
         return compareSize(player2, player1, 2.30) && !compareSize(player2, player1, 9);
     }
     
-    
+
     function canSplit(player1, player2) {
         return compareSize(player1, player2, 2.30) && !compareSize(player1, player2, 9);
     }
@@ -330,7 +329,7 @@ console.log("Running ANG Bot!");
         if (range2[0] == (range2[0] + range2[1]).mod(360)) {
             return true;
         }
-        //console.log("r1: " + range1[0] + ", " + range1[1] + " ... r2: " + range2[0] + ", " + range2[1]);
+        ////console.log("r1: " + range1[0] + ", " + range1[1] + " ... r2: " + range2[0] + ", " + range2[1]);
 
         var distanceFrom0 = (range1[0] - range2[0]).mod(360);
         var distanceFrom1 = (range1[1] - range2[0]).mod(360);
@@ -515,7 +514,7 @@ console.log("Running ANG Bot!");
                         removeFirst = true;
                     }
                     listToUse[(i - 1).mod(sortedLength)][2] += listToUse[i][2];
-                    //console.log("Merging: " + listToUse[(i - 1).mod(sortedLength)][2]);
+                    ////console.log("Merging: " + listToUse[(i - 1).mod(sortedLength)][2]);
                     listToUse.splice(i, 1);
                     sortedLength--;
                     i--;
@@ -523,7 +522,7 @@ console.log("Running ANG Bot!");
                 } else {
                     if (removeFirst) {
                         listToUse[(seriesStartIndex - 1).mod(sortedLength)][2] += listToUse[seriesStartIndex][2];
-                        //console.log("Merging: " + listToUse[(seriesStartIndex - 1).mod(sortedLength)][2]);
+                        ////console.log("Merging: " + listToUse[(seriesStartIndex - 1).mod(sortedLength)][2]);
                         listToUse.splice(seriesStartIndex, 1);
                         sortedLength--;
                         i--;
@@ -580,33 +579,33 @@ console.log("Running ANG Bot!");
             var currentAngle = listToUse[startIndex][0];
 
             for (var i = 1; i < listToUse.length; i++) {
-                //console.log("i: " + i + " length: " + listToUse.length + " offset: " + startIndex);
+                ////console.log("i: " + i + " length: " + listToUse.length + " offset: " + startIndex);
                 if (listToUse[(startIndex + i).mod(listToUse.length)][1] != currentArrow && !currentArrow && recursiveCount > 0) {
-                    //console.log("-1, " + listToUse[(startIndex + i).mod(listToUse.length)][2]);
+                    ////console.log("-1, " + listToUse[(startIndex + i).mod(listToUse.length)][2]);
                     recursiveCount -= listToUse[(startIndex + i).mod(listToUse.length)][2];
-                    //console.log("Unskip " + recursiveCount);
+                    ////console.log("Unskip " + recursiveCount);
                 } else if (listToUse[(startIndex + i).mod(listToUse.length)][1] == currentArrow && currentArrow) {
                     currentAngle = listToUse[(startIndex + i).mod(listToUse.length)][0];
                 } else if (listToUse[(startIndex + i).mod(listToUse.length)][1] != currentArrow && currentArrow) {
-                    //console.log("Add good angle: " + recursiveCount);
+                    ////console.log("Add good angle: " + recursiveCount);
                     currentArrow = false;
                     var endAngle = listToUse[(startIndex + i).mod(listToUse.length)][0];
                     var diff = (endAngle - currentAngle).mod(360);
                     angleList.push([currentAngle, diff]);
                 } else if (listToUse[(startIndex + i).mod(listToUse.length)][1] != currentArrow && !currentArrow) {
-                    //console.log("Ready for take off " + recursiveCount);
+                    ////console.log("Ready for take off " + recursiveCount);
                     currentArrow = true;
                     currentAngle = listToUse[(startIndex + i).mod(listToUse.length)][0];
                 } else if (listToUse[(startIndex + i).mod(listToUse.length)][1] == currentArrow && !currentArrow) {
-                    //console.log("1, " + listToUse[(startIndex + i).mod(listToUse.length)][2]);
+                    ////console.log("1, " + listToUse[(startIndex + i).mod(listToUse.length)][2]);
                     recursiveCount -= listToUse[(startIndex + i).mod(listToUse.length)][2];
                     currentArrow = false;
-                    //console.log("Skip angle " + recursiveCount);
+                    ////console.log("Skip angle " + recursiveCount);
                 }
-                //console.log("");
+                ////console.log("");
             }
             /*if (currentArrow) {
-                console.log("Was this needed?");
+                //console.log("Was this needed?");
                 var endAngle = listToUse[(startIndex - 1).mod(listToUse.length)][0];
                 var diff = (endAngle - currentAngle).mod(360);
                 angleList.push([currentAngle, diff]);
@@ -705,7 +704,7 @@ console.log("Running ANG Bot!");
                 //startMark = (startMark + 1).mod(tempLen);
             }
             if (!endBool) {
-              //  console.log("Truly added end: " + endMark + " value: " + range[1]);
+                //console.log("Truly added end: " + endMark + " value: " + range[1]);
                 listToUse.splice(endMark, 0, range[1]);
                 //endMark = (endMark + 1).mod(listToUse.length);
             }
@@ -725,7 +724,7 @@ console.log("Running ANG Bot!");
         var endDist = (listToUse[endMark][0] - range[1][0]).mod(360);
 
         if (startMark != endMark && listToUse.length > 2) {
-           // console.log("I really should get rid of someone.");
+            //console.log("I really should get rid of someone.");
             var diff = (endMark - startMark);
 
             if (endMark > startMark) {
@@ -780,7 +779,7 @@ console.log("Running ANG Bot!");
                 allPossibleFood = getAllFood(); // #1
 
                 var allPossibleThreats = getAllThreats();
-                //console.log("Internodes: " + interNodes.length + " Food: " + allPossibleFood.length + " Threats: " + allPossibleThreats.length);
+                ////console.log("Internodes: " + interNodes.length + " Food: " + allPossibleFood.length + " Threats: " + allPossibleThreats.length);
 
                 var badAngles = [];
 
@@ -793,13 +792,6 @@ console.log("Running ANG Bot!");
 
                     var enemyDistance = computeDistance(allPossibleThreats[i].x, allPossibleThreats[i].y, player[0].x, player[0].y);
 
-
-                    if (canSplit(player[0], allPossibleThreats[i])) {
-                        drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + 710, 0);
-                    } else {
-                        drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + player[0].size + player[0].size, 3);
-                    }
-                    
                     if(canEatNS(player[0], allPossibleThreats[i]))
                     {
                         console.log("CAN EAT");
@@ -809,9 +801,11 @@ console.log("Running ANG Bot!");
                     {
                         console.log("CAN SPLIT");
                     }
-                    else
-                    {
-                        console.log("CANNOT SPLIT");
+
+                    if (canSplit(player[0], allPossibleThreats[i])) {
+                        drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + 710, 0);
+                    } else {
+                        drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + player[0].size + player[0].size, 3);
                     }
 
                     if (allPossibleThreats[i].danger && f.getLastUpdate() - allPossibleThreats[i].dangerTimeOut > 1000) {
@@ -841,7 +835,7 @@ console.log("Running ANG Bot!");
 
                         badAngles.push([leftAngle, difference]);
 
-                        //console.log("Adding badAngles: " + leftAngle + ", " + rightAngle + " diff: " + difference);
+                        ////console.log("Adding badAngles: " + leftAngle + ", " + rightAngle + " diff: " + difference);
 
                         var lineLeft = followAngle(leftAngle, player[0].x, player[0].y, 200 + player[0].size - i * 10);
                         var lineRight = followAngle(rightAngle, player[0].x, player[0].y, 200 + player[0].size - i * 10);
@@ -863,22 +857,22 @@ console.log("Running ANG Bot!");
                 //TODO: Add wall angles here. Hardcoding temporary values.
                 if (player[0].x < 1000 && badAngles.length > 0) {
                     //LEFT
-                    //console.log("Left");
+                    ////console.log("Left");
                     var wallI = 1;
                     if (!interNodes.hasOwnProperty(wallI)) {
                         //console.log("Creating Wall");
                         var newX = -100 - screenDistance();
-                       // console.log("Got distance");
+                        //console.log("Got distance");
                         var n = f.createFake(wallI, newX, player[0].y, player[0].size * 10, "#000", false, "Left Wall");
-                       // console.log("n ID: " + n.id);
+                        //console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
                         interNodes[wallI] = n;
                         interNodes[wallI].L = getUpdate();
-                        //console.log("Added corner enemy");
+                        ////console.log("Added corner enemy");
                     } else {
-                        //console.log("Update Wall!");
+                        ////console.log("Update Wall!");
                         interNodes[wallI].L = getUpdate();
                         interNodes[wallI].y = player[0].y;
                     }
@@ -887,22 +881,22 @@ console.log("Running ANG Bot!");
                 }
                 if (player[0].y < 1000 && badAngles.length > 0) {
                     //TOP
-                    //console.log("TOP");
+                    ////console.log("TOP");
                     var wallI = 2;
                     if (!interNodes.hasOwnProperty(wallI)) {
                         //console.log("Creating Wall");
                         var newY = -100 - screenDistance();
                         //console.log("Got distance");
                         var n = f.createFake(wallI, player[0].x, newY, player[0].size * 10, "#000", false, "Top Wall");
-                       // console.log("n ID: " + n.id);
+                        //console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
                         interNodes[wallI] = n;
                         interNodes[wallI].L = getUpdate();
-                        //console.log("Added corner enemy");
+                        ////console.log("Added corner enemy");
                     } else {
-                        //console.log("Update Wall!");
+                        ////console.log("Update Wall!");
                         interNodes[wallI].L = getUpdate();
                         interNodes[wallI].x = player[0].x;
                     }
@@ -911,22 +905,22 @@ console.log("Running ANG Bot!");
                 }
                 if (player[0].x > 11180 - 1000 && badAngles.length > 0) {
                     //RIGHT
-                    //console.log("RIGHT");
+                    ////console.log("RIGHT");
                     var wallI = 3;
                     if (!interNodes.hasOwnProperty(wallI)) {
                         //console.log("Creating Wall");
                         var newX = 11180 + 100 + screenDistance();
-                       // console.log("Got distance");
+                        //console.log("Got distance");
                         var n = f.createFake(wallI, newX, player[0].y, player[0].size * 10, "#000", false, "Right Wall");
-                       // console.log("n ID: " + n.id);
+                        //console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
                         interNodes[wallI] = n;
                         interNodes[wallI].L = getUpdate();
-                        //console.log("Added corner enemy");
+                        ////console.log("Added corner enemy");
                     } else {
-                        //console.log("Update Wall!");
+                        ////console.log("Update Wall!");
                         interNodes[wallI].L = getUpdate();
                         interNodes[wallI].y = player[0].y;
                     }
@@ -935,22 +929,22 @@ console.log("Running ANG Bot!");
                 }
                 if (player[0].y > 11180 - 1000 && badAngles.length > 0) {
                     //BOTTOM
-                    //console.log("BOTTOM");
+                    ////console.log("BOTTOM");
                     var wallI = 4;
                     if (!interNodes.hasOwnProperty(wallI)) {
-                      //  console.log("Creating Wall");
+                        //console.log("Creating Wall");
                         var newY = 11180 + 100 + screenDistance();
-                       // console.log("Got distance");
+                        //console.log("Got distance");
                         var n = f.createFake(wallI, player[0].x, newY, player[0].size * 10, "#000", false, "Bottom Wall");
-                      //  console.log("n ID: " + n.id);
+                        //console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
                         interNodes[wallI] = n;
                         interNodes[wallI].L = getUpdate();
-                        //console.log("Added corner enemy");
+                        ////console.log("Added corner enemy");
                     } else {
-                        //console.log("Update Wall!");
+                        ////console.log("Update Wall!");
                         interNodes[wallI].L = getUpdate();
                         interNodes[wallI].x = player[0].x;
                     }
@@ -979,7 +973,7 @@ console.log("Running ANG Bot!");
                 var sortedInterList = [];
 
                 for (var i = 0; i < stupidList.length; i++) {
-                   // console.log("Adding: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
+                    //console.log("Adding: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
                     sortedInterList = addAngle(sortedInterList, stupidList[i])
 
                     if (sortedInterList.length == 0) {
@@ -999,7 +993,7 @@ console.log("Running ANG Bot!");
                     var angle2 = sortedInterList[(i + 1 + offsetI).mod(sortedInterList.length)][0];
                     var diff = (angle2 - angle1).mod(360);
                     goodAngles.push([angle1, diff]);
-                   // console.log("Yo man! Cool stuff added man! " + angle1 + ", " + diff + ", " + angle2 + " len: " + sortedInterList.length);
+                    //console.log("Yo man! Cool stuff added man! " + angle1 + ", " + diff + ", " + angle2 + " len: " + sortedInterList.length);
                 }
 
 
@@ -1033,7 +1027,7 @@ console.log("Running ANG Bot!");
                         }
                     }
                     var perfectAngle = (bIndex[0] + bIndex[1] / 2).mod(360);
-                    //console.log("perfectAngle " + perfectAngle);
+                    ////console.log("perfectAngle " + perfectAngle);
                     var line1 = followAngle(perfectAngle, player[0].x, player[0].y, 300);
 
                     drawLine(player[0].x, player[0].y, line1[0], line1[1], 7);
@@ -1043,13 +1037,13 @@ console.log("Running ANG Bot!");
                     //TODO: CODE TO HANDLE WHEN THERE IS NO GOOD ANGLE BY THERE ARE ENEMIES AROUND!!!!!!!!!!!!!
                 } else {
                     for (var i = 0; i < clusterAllFood.length; i++) {
-                        //console.log("mefore: " + clusterAllFood[i][2]);
+                        ////console.log("mefore: " + clusterAllFood[i][2]);
                         //This is the cost function. Higher is better.
 
                         var clusterAngle = getAngle(clusterAllFood[i][0], clusterAllFood[i][1], player[0].x, player[0].y);
 
                         clusterAllFood[i][2] = clusterAllFood[i][2] * 6 - computeDistance(clusterAllFood[i][0], clusterAllFood[i][1], player[0].x, player[0].y);
-                        //console.log("Current Value: " + clusterAllFood[i][2]);
+                        ////console.log("Current Value: " + clusterAllFood[i][2]);
 
                         //(goodAngles[bIndex][1] / 2 - (Math.abs(perfectAngle - clusterAngle)));
 
@@ -1057,7 +1051,7 @@ console.log("Running ANG Bot!");
 
 
                         drawPoint(clusterAllFood[i][0], clusterAllFood[i][1], 1, "");
-                        //console.log("After: " + clusterAllFood[i][2]);
+                        ////console.log("After: " + clusterAllFood[i][2]);
                     }
 
                     var bestFoodI = 0;
@@ -1069,7 +1063,7 @@ console.log("Running ANG Bot!");
                         }
                     }
 
-                    //console.log("Best Value: " + clusterAllFood[bestFoodI][2]);
+                    ////console.log("Best Value: " + clusterAllFood[bestFoodI][2]);
 
                     tempMoveX = clusterAllFood[bestFoodI][0];
                     tempMoveY = clusterAllFood[bestFoodI][1];
@@ -1079,10 +1073,10 @@ console.log("Running ANG Bot!");
                 drawPoint(tempPoint[0], tempPoint[1], tempPoint[2], "");
                 //drawPoint(tempPoint[0], tempPoint[1], tempPoint[2], "" + Math.floor(computeDistance(tempPoint[0], tempPoint[1], I, J)));
                 //drawLine(tempPoint[0], tempPoint[1], player[0].x, player[0].y, 6);
-                //console.log("Slope: " + slope(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Angle: " + getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Side: " + (getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) - 90).mod(360));
+                ////console.log("Slope: " + slope(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Angle: " + getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Side: " + (getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) - 90).mod(360));
                 tempPoint[2] = 1;
             }
-            //console.log("MOVING RIGHT NOW!");
+            ////console.log("MOVING RIGHT NOW!");
 
             //console.log("______Never lied ever in my life.");
 
@@ -1113,14 +1107,7 @@ console.log("Running ANG Bot!");
     function drawCircle(x_1, y_1, radius, drawColor) {
         f.drawCircle(x_1, y_1, radius, drawColor);
     }
-    
-    //drawString
-    /*
-    function drawString(text, x_1, y_1, drawColor)
-    {
-        f.drawString(text, x_1, y_1, drawColor);
-    }
-    */
+
     function screenDistance() {
         var temp = f.getScreenDistance();
         return temp;
