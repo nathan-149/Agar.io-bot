@@ -18,7 +18,7 @@ Array.prototype.peek = function() {
 
 console.log("Running Apos Bot!");
 (function(f, g) {
-    console.log("Apos Bot!");
+    //console.log("Apos Bot!");
 
     if (f.botList == null) {
         f.botList = [];
@@ -635,7 +635,7 @@ console.log("Running Apos Bot!");
             var angle1 = listToUse[(i + startIndex).mod(listToUse.length)][0]; 
             var angle2 = listToUse[(i + 1 + startIndex).mod(listToUse.length)][0];
 
-            console.log("Current Index: " + (i + startIndex).mod(listToUse.length) + " angle: " + angle1 + ", " + angle2);
+            //console.log("Current Index: " + (i + startIndex).mod(listToUse.length) + " angle: " + angle1 + ", " + angle2);
 
             var segmentRange = (angle2 - angle1).mod(360);
 
@@ -682,12 +682,12 @@ console.log("Running Apos Bot!");
             }
 
             if (!endBool) {
-                console.log("Truly added end: " + endMark + " value: " + range[1]);
+                //console.log("Truly added end: " + endMark + " value: " + range[1]);
                 listToUse.splice(endMark, 0, range[1]);
                 //endMark = (endMark + 1).mod(tempLen);
             }
             if (!startBool) {
-                console.log("Truly added sta: " + startMark + " value: " + range[0]);
+                //console.log("Truly added sta: " + startMark + " value: " + range[0]);
                 listToUse.splice(startMark, 0, range[0]);
                 //startMark = (startMark + 1).mod(listToUse.length);
             }
@@ -699,56 +699,56 @@ console.log("Running Apos Bot!");
             }
 
             if (!startBool) {
-                console.log("Truly added sta: " + startMark + " value: " + range[0]);
+                //console.log("Truly added sta: " + startMark + " value: " + range[0]);
                 listToUse.splice(startMark, 0, range[0]);
                 //startMark = (startMark + 1).mod(tempLen);
             }
             if (!endBool) {
-                console.log("Truly added end: " + endMark + " value: " + range[1]);
+              //  console.log("Truly added end: " + endMark + " value: " + range[1]);
                 listToUse.splice(endMark, 0, range[1]);
                 //endMark = (endMark + 1).mod(listToUse.length);
             }
         }
 
-        console.log("Okay... " + startMark + ", " + endMark + " len: " + listToUse.length + " sb:" + startBool + " eb: " + endBool);
+        //console.log("Okay... " + startMark + ", " + endMark + " len: " + listToUse.length + " sb:" + startBool + " eb: " + endBool);
 
         /*if (startBool && endBool) {
             startMark = (startMark - 1).mod(listToUse.length);
         }*/
 
         for (var i = 0; i < listToUse.length; i++) {
-            console.log("Hands are clean: " + i + " " + listToUse[i]);
+            //console.log("Hands are clean: " + i + " " + listToUse[i]);
         }
 
         var startDist = (listToUse[startMark][0] - range[0][0]).mod(360);
         var endDist = (listToUse[endMark][0] - range[1][0]).mod(360);
 
         if (startMark != endMark && listToUse.length > 2) {
-            console.log("I really should get rid of someone.");
+           // console.log("I really should get rid of someone.");
             var diff = (endMark - startMark);
 
             if (endMark > startMark) {
                 for (var i = endMark; i > (endMark - diff); i--) {
-                    console.log("#lolRekt1 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
+                    //console.log("#lolRekt1 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
                     listToUse.splice((i).mod(listToUse.length), 1);
                 }
             } else {
                 for (var i = endMark - 1; i >= 0; i--) {
-                    console.log("#lolRekt2 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
+                    //console.log("#lolRekt2 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
                     listToUse.splice((i).mod(listToUse.length), 1);
                     startMark = (startMark - 1).mod(listToUse.length);
                 }
-                console.log("Secret agent! Keep out: " + (listToUse.length - 1) + " to " + startMark);
+                //console.log("Secret agent! Keep out: " + (listToUse.length - 1) + " to " + startMark);
                 for (var i = listToUse.length - 1; i > startMark; i--) {
                     console.log("#lolRekt3 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
                     listToUse.splice((i).mod(listToUse.length), 1);
                 }
             }
         } else if (startMark != endMark) {
-            console.log("startMark: " + startMark + " endMark " + endMark);
+            //console.log("startMark: " + startMark + " endMark " + endMark);
         } else if (startMark == endMark && startBool && endBool && startDist < endDist) {
             for (var i = listToUse.length - 1; i >= 0; i--) {
-                console.log("#lolRekt4 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
+                //console.log("#lolRekt4 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
                 listToUse.splice((i).mod(listToUse.length), 1);
             }
         }
@@ -858,11 +858,11 @@ console.log("Running Apos Bot!");
                     //console.log("Left");
                     var wallI = 1;
                     if (!interNodes.hasOwnProperty(wallI)) {
-                        console.log("Creating Wall");
+                        //console.log("Creating Wall");
                         var newX = -100 - screenDistance();
-                        console.log("Got distance");
+                       // console.log("Got distance");
                         var n = f.createFake(wallI, newX, player[0].y, player[0].size * 10, "#000", false, "Left Wall");
-                        console.log("n ID: " + n.id);
+                       // console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
@@ -882,11 +882,11 @@ console.log("Running Apos Bot!");
                     //console.log("TOP");
                     var wallI = 2;
                     if (!interNodes.hasOwnProperty(wallI)) {
-                        console.log("Creating Wall");
+                        //console.log("Creating Wall");
                         var newY = -100 - screenDistance();
-                        console.log("Got distance");
+                        //console.log("Got distance");
                         var n = f.createFake(wallI, player[0].x, newY, player[0].size * 10, "#000", false, "Top Wall");
-                        console.log("n ID: " + n.id);
+                       // console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
@@ -906,11 +906,11 @@ console.log("Running Apos Bot!");
                     //console.log("RIGHT");
                     var wallI = 3;
                     if (!interNodes.hasOwnProperty(wallI)) {
-                        console.log("Creating Wall");
+                        //console.log("Creating Wall");
                         var newX = 11180 + 100 + screenDistance();
-                        console.log("Got distance");
+                       // console.log("Got distance");
                         var n = f.createFake(wallI, newX, player[0].y, player[0].size * 10, "#000", false, "Right Wall");
-                        console.log("n ID: " + n.id);
+                       // console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
@@ -930,11 +930,11 @@ console.log("Running Apos Bot!");
                     //console.log("BOTTOM");
                     var wallI = 4;
                     if (!interNodes.hasOwnProperty(wallI)) {
-                        console.log("Creating Wall");
+                      //  console.log("Creating Wall");
                         var newY = 11180 + 100 + screenDistance();
-                        console.log("Got distance");
+                       // console.log("Got distance");
                         var n = f.createFake(wallI, player[0].x, newY, player[0].size * 10, "#000", false, "Bottom Wall");
-                        console.log("n ID: " + n.id);
+                      //  console.log("n ID: " + n.id);
                         delete getCells()[wallI];
                         getCellsArray().pop();
 
@@ -971,7 +971,7 @@ console.log("Running Apos Bot!");
                 var sortedInterList = [];
 
                 for (var i = 0; i < stupidList.length; i++) {
-                    console.log("Adding: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
+                   // console.log("Adding: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
                     sortedInterList = addAngle(sortedInterList, stupidList[i])
 
                     if (sortedInterList.length == 0) {
@@ -991,11 +991,11 @@ console.log("Running Apos Bot!");
                     var angle2 = sortedInterList[(i + 1 + offsetI).mod(sortedInterList.length)][0];
                     var diff = (angle2 - angle1).mod(360);
                     goodAngles.push([angle1, diff]);
-                    console.log("Yo man! Cool stuff added man! " + angle1 + ", " + diff + ", " + angle2 + " len: " + sortedInterList.length);
+                   // console.log("Yo man! Cool stuff added man! " + angle1 + ", " + diff + ", " + angle2 + " len: " + sortedInterList.length);
                 }
 
 
-                console.log("Already done? That was quick.");
+                //console.log("Already done? That was quick.");
 
                 for (var i = 0; i < goodAngles.length; i++) {
                     if (goodAngles[i][0] != goodAngles[i][1].mod(360)) {
