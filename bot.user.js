@@ -966,7 +966,7 @@ console.log("Running Apos Bot!");
                 stupidList.push([[270, true], [300, false]]);
                 stupidList.push([[45, true], [20, false]]);*/
 
-                console.log("Added random noob stuff.");
+                //console.log("Added random noob stuff.");
 
                 var sortedInterList = [];
 
