@@ -2,7 +2,7 @@
 // @name        AposBot
 // @namespace   AposBot
 // @include     http://agar.io/
-// @version     3.05
+// @version     3.1
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
@@ -1076,7 +1076,7 @@ console.log("Running Apos Bot!");
             }
             //console.log("MOVING RIGHT NOW!");
 
-            console.log("______Never lied ever in my life.");
+            //console.log("______Never lied ever in my life.");
 
             return [tempMoveX, tempMoveY];
         }
