@@ -2,7 +2,7 @@
 // @name        angrocket
 // @namespace   angrocket
 // @include     http://agar.io/
-// @version     3.10
+// @version     3.11
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
@@ -98,7 +98,7 @@ console.log("Running ANG Bot!");
     
     function canEatNS(player1, player2)
     {
-        return true;
+        return compareSize(player2, player1, 1.30);;
     }
     
     //Check if player is able to eat player2 after splitting
@@ -795,6 +795,7 @@ console.log("Running ANG Bot!");
 
                     if (canSplit(player[0], allPossibleThreats[i])) {
                         drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + 710, 0);
+                        console.log("DANGER");
                     } else {
                         drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + player[0].size + player[0].size, 3);
                     }
@@ -807,7 +808,14 @@ console.log("Running ANG Bot!");
                         console.log("CANNOT EAT");
                     }
                     
-                    
+                    if(canEatWS(player[0], allPossibleThreats[i]))
+                    {
+                        console.log("CAN SPLIT");
+                    }
+                    else
+                    {
+                        console.log("CANNOT SPLIT");
+                    }
 
                     if (allPossibleThreats[i].danger && f.getLastUpdate() - allPossibleThreats[i].dangerTimeOut > 1000) {
 
