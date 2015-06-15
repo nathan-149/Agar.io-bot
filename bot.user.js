@@ -16,7 +16,7 @@ Array.prototype.peek = function() {
     return this[this.length - 1];
 }
 
-console.log("Running Apos Bot!");
+console.log("Running ANG Bot!");
 (function(f, g) {
     //console.log("Apos Bot!");
 
@@ -740,7 +740,7 @@ console.log("Running Apos Bot!");
                 }
                 //console.log("Secret agent! Keep out: " + (listToUse.length - 1) + " to " + startMark);
                 for (var i = listToUse.length - 1; i > startMark; i--) {
-                    console.log("#lolRekt3 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
+                    //console.log("#lolRekt3 " + (i).mod(listToUse.length) + " value: " + listToUse[(i).mod(listToUse.length)][0]);
                     listToUse.splice((i).mod(listToUse.length), 1);
                 }
             }
