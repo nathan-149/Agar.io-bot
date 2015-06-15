@@ -106,7 +106,7 @@ console.log("Running ANG Bot!");
     
     function canEatWS(player1, player2)
     {
-        return compareSize(player2, player1, 2.30) && !compareSize(player2, player1, 9));
+        return compareSize(player2, player1, 2.30) && !compareSize(player2, player1, 9);
     }
     
     
