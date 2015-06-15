@@ -2,7 +2,7 @@
 // @name        angrocket
 // @namespace   angrocket
 // @include     http://agar.io/
-// @version     3.09
+// @version     3.10
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
@@ -98,7 +98,7 @@ console.log("Running ANG Bot!");
     
     function canEatNS(player1, player2)
     {
-        return compareSize(player2, player1, 1.30);
+        return true;
     }
     
     //Check if player is able to eat player2 after splitting
