@@ -99,11 +99,7 @@ console.log("Running ANG Bot!");
     
     function canEatNS(player1, player2)
     {
-        if (player2.size * player2.size * 1.30 < player1.size * player1.size) {
-            return true;
-        }
-        else
-            return false;
+        return compareSize(player2, player1, 1.30);
     }
     
     //Check if player is able to eat player2 after splitting
@@ -800,7 +796,6 @@ console.log("Running ANG Bot!");
 
                     if (canSplit(player[0], allPossibleThreats[i])) {
                         drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + 710, 0);
-                        console.log("DANGER");
                     } else {
                         drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size + player[0].size + player[0].size, 3);
                     }
@@ -808,9 +803,6 @@ console.log("Running ANG Bot!");
                     if(canEatNS(player[0], allPossibleThreats[i]))
                     {
                         console.log("CAN EAT");
-                    }
-                    else{
-                        console.log("CANNOT EAT");
                     }
                     
                     if(canEatWS(player[0], allPossibleThreats[i]))
