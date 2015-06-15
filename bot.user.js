@@ -606,7 +606,7 @@ console.log("Running Apos Bot!");
     }
 
     function canSplit(player1, player2) {
-        if (player1.size * player1.size * 2.30 < player2.size * player2.size && 1==1) {
+        if (player1.size * player1.size * 2.30 < player2.size * player2.size) {
             return true;
         }
         return false;
