@@ -801,9 +801,9 @@ console.log("Running Apos Bot!");
                     
                     if(canEatNS(player[0], allPossibleThreats[i]))
                     {
-                        drawString("CAN EAT", allPossibleThreats[i].x, allPossibleThreats[i].y, 3);
-                        drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, allPossibleThreats[i].size, 3);
+                        console.log("CAN EAT");
                     }
+                    
                     
 
                     if (allPossibleThreats[i].danger && f.getLastUpdate() - allPossibleThreats[i].dangerTimeOut > 1000) {
@@ -1107,10 +1107,12 @@ console.log("Running Apos Bot!");
     }
     
     //drawString
+    /*
     function drawString(text, x_1, y_1, drawColor)
     {
         f.drawString(text, x_1, y_1, drawColor);
     }
+    */
     function screenDistance() {
         var temp = f.getScreenDistance();
         return temp;
