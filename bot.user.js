@@ -2,7 +2,7 @@
 // @name        angrocket
 // @namespace   AposBot
 // @include     http://agar.io/
-// @version     3.05
+// @version     3.06
 // @grant       none
 // @author      http://www.twitch.tv/apostolique
 // ==/UserScript==
@@ -794,12 +794,12 @@ console.log("Running ANG Bot!");
 
                     if(canEatNS(player[0], allPossibleThreats[i]))
                     {
-                        console.log("CAN EAT");
+                        //console.log("CAN EAT");
                     }
                     
                     if(canEatWS(player[0], allPossibleThreats[i]))
                     {
-                        console.log("CAN SPLIT");
+                        //console.log("CAN SPLIT");
                     }
 
                     if (canSplit(player[0], allPossibleThreats[i])) {
